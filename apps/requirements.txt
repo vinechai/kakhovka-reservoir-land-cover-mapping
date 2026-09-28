@@ -1,0 +1,9 @@
+# only what the explorer app needs (streamlit community cloud installs this file, not the
+# project's full requirements.txt with torch / mlflow / earth engine)
+numpy>=2.0
+pandas>=2.2
+rasterio>=1.4
+matplotlib>=3.8
+folium>=0.17
+streamlit>=1.40
+streamlit-folium>=0.24

@@ -1,0 +1,10 @@
+{
+ "ref_month": "2024-08",
+ "design": "train",
+ "pixels": {
+  "water": 230594,
+  "bare": 475762,
+  "mid": 550410,
+  "high": 1523547
+ }
+}

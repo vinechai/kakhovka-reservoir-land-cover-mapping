@@ -1,0 +1,11 @@
+| run                | what                                                                        |   accuracy |   macro-F1 |   F1 water |   F1 bare |   F1 sparse_veg |   F1 dense_veg | vs phase 1 (95%)   |
+|:-------------------|:----------------------------------------------------------------------------|-----------:|-----------:|-----------:|----------:|----------------:|---------------:|:-------------------|
+| fcn                | base: 23 px view, weak labels for water / bare / dense / snow + hand labels |      0.793 |      0.744 |      0.857 |     0.846 |           0.426 |          0.849 | -0.10 to +0.03     |
+| fcn_bal            | fewer weak labels, hand labels x100, fully balanced class weights           |      0.749 |      0.7   |      0.8   |     0.792 |           0.353 |          0.854 | -0.15 to -0.01     |
+| fcn_ws             | base + phase 1's sparse band as noisy weak labels                           |      0.726 |      0.731 |      0.809 |     0.763 |           0.494 |          0.857 | -0.10 to -0.01     |
+| fcn_ws_m1_m2       | fcn_ws + the two previous months as extra input                             |      0.754 |      0.76  |      0.833 |     0.775 |           0.539 |          0.891 | -0.07 to +0.03     |
+| fcn_nohand         | base without any hand labels (control)                                      |      0.737 |      0.606 |      0.833 |     0.793 |           0     |          0.797 | -0.23 to -0.12     |
+| fcn_rf11           | base with a smaller view: 11 px (110 m) instead of 23 px                    |      0.788 |      0.761 |      0.868 |     0.824 |           0.5   |          0.851 | -0.08 to +0.04     |
+| fcn_m1_m2          | base + the two previous months as extra input                               |      0.76  |      0.72  |      0.84  |     0.792 |           0.417 |          0.83  | -0.13 to +0.01     |
+| fcn_rf11_m1_m2     | 11 px view + the two previous months as extra input                         |      0.804 |      0.775 |      0.846 |     0.837 |           0.571 |          0.846 | -0.07 to +0.06     |
+| phase 1 (per fold) | index rules, cut-offs tuned per fold                                        |      0.799 |      0.781 |      0.809 |     0.819 |           0.588 |          0.909 | nan                |

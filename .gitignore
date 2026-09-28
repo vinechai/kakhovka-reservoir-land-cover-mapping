@@ -1,0 +1,16 @@
+/data/
+*.tif
+*.pth
+*.pt
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+venv/
+*.egg-info/
+mlflow.db
+mlartifacts/
+
+# the explorer app's slim map copy is tracked (see scripts/export_explorer_data.py)
+!explorer_data/**/*.tif
+outputs/logs/

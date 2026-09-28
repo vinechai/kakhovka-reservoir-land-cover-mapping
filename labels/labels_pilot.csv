@@ -1,0 +1,31 @@
+point_id,label,trees_visible,confident,note,target_month,imagery_date,labeller,labelled_at
+0,water,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:44:01+00:00
+1,dense_veg,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:44:14+00:00
+2,unsure,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:44:25+00:00
+3,bare,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:44:55+00:00
+4,dense_veg,True,True,,2025-04,2025-04-25,Vitalii Nechai,2026-09-26T22:45:35+00:00
+5,dense_veg,True,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:45:48+00:00
+6,dense_veg,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:46:06+00:00
+7,bare,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:46:12+00:00
+8,dense_veg,True,True,,2024-10,2024-10-22,Vitalii Nechai,2026-09-26T22:46:27+00:00
+9,dense_veg,True,True,,2024-10,2024-10-22,Vitalii Nechai,2026-09-26T22:46:33+00:00
+10,bare,False,True,wet sand most likely,2025-04,2025-04-25,Vitalii Nechai,2026-09-26T22:50:20+00:00
+11,dense_veg,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:50:41+00:00
+12,bare,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:50:51+00:00
+13,dense_veg,True,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:51:01+00:00
+14,dense_veg,True,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:51:06+00:00
+15,dense_veg,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:51:25+00:00
+16,water,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:51:35+00:00
+17,dense_veg,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:51:41+00:00
+18,bare,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:51:45+00:00
+19,bare,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:51:49+00:00
+20,dense_veg,True,True,,2025-04,2025-04-25,Vitalii Nechai,2026-09-26T22:51:59+00:00
+21,dense_veg,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:52:31+00:00
+22,bare,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:52:36+00:00
+23,water,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:52:47+00:00
+24,dense_veg,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:52:56+00:00
+25,water,False,True,,2025-04,2025-04-25,Vitalii Nechai,2026-09-26T22:53:04+00:00
+26,water,False,True,,2024-10,2024-10-22,Vitalii Nechai,2026-09-26T22:53:12+00:00
+27,dense_veg,True,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:55:33+00:00
+28,dense_veg,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:55:42+00:00
+29,dense_veg,False,True,,2024-08,2024-08-23,Vitalii Nechai,2026-09-26T22:55:55+00:00
