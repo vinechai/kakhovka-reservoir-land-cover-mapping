@@ -104,7 +104,7 @@ apps/
   labeling_app.py       hand labelling
   explorer_app.py       month slider, phase 1 vs cnn maps
 labels/                 sampled points and hand labels
-explorer_data/          small copy of the class maps for the online explorer
+explorer_data/          class maps and monthly satellite images for the online explorer
 tests/                  46 pytest tests, run by github actions on every push
 outputs/                figures, tables, training logs
 data/                   rasters and model weights (not in git)
