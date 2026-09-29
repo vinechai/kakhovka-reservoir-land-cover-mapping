@@ -18,7 +18,7 @@ import streamlit as st
 from rasterio.warp import Resampling, calculate_default_transform, reproject
 from streamlit_folium import st_folium
 
-from scripts.plot_landcover import COLORS, LABELS
+from src.palette import COLORS, LABELS
 from src.config import ALL_MONTHS, AREAS, COLLAPSE_DATE, DATA_DIR, ROOT
 from src.labeling.imagery import ESRI_TILES
 

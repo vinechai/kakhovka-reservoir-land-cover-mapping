@@ -23,14 +23,10 @@ from matplotlib.colors import ListedColormap
 from matplotlib.patches import Patch
 
 from src.baseline.index_classifier import load_bands
+from src.palette import COLORS, LABELS, NODATA_COLOR
 from src.config import AREAS, COLLAPSE_DATE, ROOT, area_dir
 
 # class colours: conventional land-cover meaning, validated as a set (all-pairs, cvd-safe)
-COLORS = {"water": "#2a78d6", "bare": "#eda100", "sparse_veg": "#1baf7a", "dense_veg": "#008300",
-          "snow_ice": "#4a3aa7"}
-LABELS = {"water": "Water", "bare": "Bare sediment / sand", "sparse_veg": "Sparse vegetation",
-          "dense_veg": "Dense vegetation", "snow_ice": "Snow / ice"}
-NODATA_COLOR = "#d9d9d6"
 SURFACE = "#fcfcfb"
 INK, INK_2, GRID = "#0b0b0b", "#52514e", "#e4e3df"
 
