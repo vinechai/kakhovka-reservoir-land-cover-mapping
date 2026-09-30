@@ -1,5 +1,5 @@
 # copies what the explorer needs into explorer_data/, which is tracked in git: class maps of
-# both methods, and a true colour image per month (20 m, lat/lon, jpeg) as the map background.
+# both methods, and a true colour image per month (10 m, lat/lon, jpeg) as the map background.
 #
 # usage: python scripts/export_explorer_data.py
 
@@ -35,7 +35,7 @@ def recompress(src_path: Path, dst_path: Path):
             dst.write(src.read())
 
 
-def export_rgb(s2_tif: Path, out_jpg: Path, factor: int = 2) -> list[list[float]]:
+def export_rgb(s2_tif: Path, out_jpg: Path, factor: int = 1) -> list[list[float]]:
     """true colour of one monthly composite, reprojected to lat/lon at `factor` x coarser
     resolution. returns the image bounds [[south, west], [north, east]]."""
     bands, valid, profile = load_bands(s2_tif)
