@@ -1,0 +1,80 @@
+{
+ "set": "test",
+ "n": 297,
+ "methods": {
+  "phase1": {
+   "accuracy": 0.7575757575757576,
+   "macro_f1": 0.754508321590433,
+   "per_class_f1": {
+    "bare": 0.7545454545454545,
+    "dense_veg": 0.8774193548387097,
+    "sparse_veg": 0.5289256198347108,
+    "water": 0.8571428571428571
+   },
+   "n": 297,
+   "area_weighted_accuracy": 0.796903002912889,
+   "lyman_noise_km2": 0.008999999999999453
+  },
+  "cnn": {
+   "accuracy": 0.7407407407407407,
+   "macro_f1": 0.6957824071108074,
+   "per_class_f1": {
+    "bare": 0.7603305785123967,
+    "dense_veg": 0.8488372093023255,
+    "sparse_veg": 0.345679012345679,
+    "water": 0.8282828282828283
+   },
+   "n": 297,
+   "area_weighted_accuracy": 0.7845820169235855,
+   "lyman_noise_km2": 0.01499999999999968
+  }
+ },
+ "cnn_minus_phase1": {
+  "macro_f1_diff_95": [
+   -0.107204315596999,
+   -0.009695311775354513
+  ],
+  "accuracy_diff_95": [
+   -0.0639730639730639,
+   0.030303030303030276
+  ]
+ },
+ "area_estimate": {
+  "month": "2024-08",
+  "n": 191,
+  "table": [
+   {
+    "class": "water",
+    "km2": 31.1,
+    "ci95_low": 24.6,
+    "ci95_high": 37.6,
+    "phase1 map": 23.1,
+    "cnn map": 24.9
+   },
+   {
+    "class": "bare",
+    "km2": 74.1,
+    "ci95_low": 62.4,
+    "ci95_high": 85.8,
+    "phase1 map": 70.0,
+    "cnn map": 81.9
+   },
+   {
+    "class": "sparse_veg",
+    "km2": 28.9,
+    "ci95_low": 19.6,
+    "ci95_high": 38.2,
+    "phase1 map": 32.6,
+    "cnn map": 20.3
+   },
+   {
+    "class": "dense_veg",
+    "km2": 144.0,
+    "ci95_low": 133.0,
+    "ci95_high": 154.9,
+    "phase1 map": 152.4,
+    "cnn map": 150.9
+   }
+  ]
+ }
+}

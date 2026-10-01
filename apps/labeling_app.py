@@ -89,8 +89,11 @@ if not sets:
 
 with st.sidebar:
     st.header("Labelling")
-    # training labels are needed first (phase 2 waits on them), so open on that set
-    point_set = st.selectbox("Point set", sets, index=sets.index("train") if "train" in sets else 0)
+    # open on the first set that still has unlabelled points (train, then test)
+    order = [s for s in ("train", "test") if s in sets] + [s for s in sets if s not in ("train", "test")]
+    todo_sets = [s for s in order if len(load_labels(s)) < len(load_points(s))]
+    default = todo_sets[0] if todo_sets else order[0]
+    point_set = st.selectbox("Point set", order, index=order.index(default))
     labeller = st.text_input("Your name", value=st.session_state.get("labeller", ""))
     st.session_state.labeller = labeller
 

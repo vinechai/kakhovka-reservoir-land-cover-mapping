@@ -33,7 +33,9 @@ water = mndwi > 0, dense = ndvi >= 0.5, sparse = ndvi 0.3-0.5, bare = the rest, 
 - input: 10 bands, ndvi, mndwi, month of year, and the same layers for the 2 previous months
 - labels: ~43k pixels where phase 1 is very sure (clear water, clear sand, clearly dense) plus 179 hand labels, which are the only examples of sparse vegetation
 - no weak labels within 300 m of any hand labelled or test point, so the model can't memorise them
-- scored with 4-fold cross-validation on the hand labels, phase 1 re-tuned inside each fold the same way
+- 8 variants compared with 4-fold cross-validation on the training labels (phase 1 re-tuned inside each fold the same way), the best one then graded once on the test set
+
+cross-validation on the 179 training labels:
 
 | variant | accuracy | macro f1 |
 |---|---|---|
@@ -45,31 +47,46 @@ water = mndwi > 0, dense = ndvi >= 0.5, sparse = ndvi 0.3-0.5, bare = the rest, 
 
 full table with all 8 runs: `outputs/tables/experiments_velykyi_luh.md`.
 
-the cnn matches the thresholds but doesn't beat them (bootstrap 95% interval for the difference in macro f1: -0.07 to +0.06). it is better on water and bare, worse on sparse and dense, and its maps are less noisy. without hand labels it never predicts sparse vegetation at all. a smaller view worked better, sparse cover comes in small patches and a wide view averages them away.
+without hand labels the cnn never predicts sparse vegetation at all. a smaller view worked better, sparse cover comes in small patches and a wide view averages them away.
+
+## test set
+
+300 separate hand labelled points, never used for training or for choosing a model (297 used, 3 marked "can't tell"):
+
+| | accuracy | macro f1 | f1 water | f1 bare | f1 sparse | f1 dense |
+|---|---|---|---|---|---|---|
+| phase 1 (index thresholds) | 0.76 | 0.76 | 0.86 | 0.75 | 0.53 | 0.88 |
+| cnn | 0.74 | 0.70 | 0.83 | 0.76 | 0.35 | 0.85 |
+
+on the test set the simple thresholds win. accuracy is about the same, but the cnn misses most of the sparse vegetation (it calls it bare or dense), so its macro f1 is lower (bootstrap 95% interval for cnn minus phase 1: -0.11 to -0.01). in cross-validation the two looked tied, the gap shows up only on fresh points, probably because the cnn was picked as the best of 8 variants on the same training labels. with ~30 examples of sparse cover the cnn can't learn that class better than one ndvi range does. the cnn still gives cleaner, less noisy maps.
+
+full report: `outputs/tables/evaluation_test.md`.
 
 ## results
 
-old reservoir bed (278 km²), final cnn, km²:
+old reservoir bed (278 km²), phase 1 maps since they did best on the test set, km²:
 
 | | water | bare | sparse | dense |
 |---|---|---|---|---|
-| may 2023 (before) | 275 | 4 | 0 | 0 |
-| aug 2023 | 53 | 194 | 5 | 26 |
-| aug 2024 | 25 | 82 | 20 | 151 |
-| aug 2025 | 18 | 65 | 8 | 187 |
-| aug 2026 | 20 | 41 | 5 | 212 |
+| may 2023 (before) | 277 | 1 | 0 | 0 |
+| aug 2023 | 51 | 172 | 35 | 21 |
+| aug 2024 | 23 | 70 | 33 | 152 |
+| aug 2025 | 19 | 39 | 39 | 181 |
+| aug 2026 | 20 | 26 | 22 | 211 |
+
+within three summers about three quarters of the old lake bed is covered with dense vegetation.
 
 ![timeseries](outputs/figures/compare_timeseries_velykyi_luh.png)
 ![maps](outputs/figures/compare_maps_velykyi_luh.png)
 
 - both methods agree on water and dense vegetation, they disagree a lot on sparse vegetation (cnn 0-63 km², thresholds 3-146 km²), so that number is the least reliable one
-- estimating areas directly from the hand labels (stratified estimator) for aug 2024 gives dense 134 km² (115-154) and bare 84 km² (71-97), so both maps probably overcount dense a bit
+- areas estimated directly from the 191 test points labelled for aug 2024 (stratified estimator, 95% interval): water 31 km² (25-38), bare 74 (62-86), sparse 29 (20-38), dense 144 (133-155). both maps fall inside these intervals except water, which both undercount (23-25 km²), probably partly because a monthly composite misses short-lived shallow water that the high-res photo shows
 - google dynamic world calls most of the bed "crops" in 2024 and 196 km² "trees" in 2026, a global model struggles with such a new landscape
 - bilozerskyi lyman, a separately dammed lake inside the old reservoir outline, is kept out of the stats
 
 ## still to do
 
-- label the 300 test points and run `scripts/evaluate.py --set test` for the final, unbiased comparison
+- more hand labels of sparse vegetation, the weakest class for both methods
 - scale up to the whole reservoir (~2 150 km²)
 
 ## running locally
