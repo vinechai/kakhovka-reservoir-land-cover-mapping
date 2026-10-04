@@ -4,7 +4,7 @@ month by month land cover map of the former kakhovka reservoir bed, from free se
 
 two methods are compared: simple index thresholds (no learning) and a cnn trained on my own hand labels.
 
-live explorer: coming soon
+live explorer: https://kakhovka-reservoir-land-cover-mapping.streamlit.app/
 
 ## stack
 
@@ -83,6 +83,16 @@ within three summers about three quarters of the old lake bed is covered with de
 - areas estimated directly from the 191 test points labelled for aug 2024 (stratified estimator, 95% interval): water 31 km² (25-38), bare 74 (62-86), sparse 29 (20-38), dense 144 (133-155). both maps fall inside these intervals except water, which both undercount (23-25 km²), probably partly because a monthly composite misses short-lived shallow water that the high-res photo shows
 - google dynamic world calls most of the bed "crops" in 2024 and 196 km² "trees" in 2026, a global model struggles with such a new landscape
 - bilozerskyi lyman, a separately dammed lake inside the old reservoir outline, is kept out of the stats
+
+## apps
+
+explorer: pick a month and compare phase 1 and the cnn on top of the sentinel-2 image of that month.
+
+![explorer](outputs/figures/explorer_app.png)
+
+labelling: each point shows sentinel-2 cut-outs, the high-res photo with the pixel outlined and the point's ndvi / mndwi over time. the phase 1 answer is hidden so the labels stay independent.
+
+![labelling](outputs/figures/labeling_app.png)
 
 ## still to do
 
