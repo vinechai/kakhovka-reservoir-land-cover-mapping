@@ -121,7 +121,7 @@ for col, m in zip(cols, methods):
         # (older ones when zoomed out), so they're only an optional layer
         folium.TileLayer("OpenStreetMap", name="Map").add_to(fmap)
         folium.TileLayer(ESRI_TILES, attr="Esri World Imagery", max_zoom=19,
-                         name="Esri photos (fixed, mixed dates)").add_to(fmap)
+                         name="Esri photos (fixed, mixed dates)", show=False).add_to(fmap)
         img, img_bounds = month_image(area, month)
         folium.raster_layers.ImageOverlay(img, bounds=img_bounds, mercator_project=True,
                                           name=f"Sentinel-2, {month}").add_to(fmap)
